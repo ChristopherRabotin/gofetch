@@ -1,0 +1,5 @@
+environment.sh
+gofetch
+push2redis/*.pyc
+Godeps/_workspace/
+coverage.out

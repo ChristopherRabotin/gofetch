@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://fetcher.sparrho.com/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fetcher.sparrho.com/config docs/config.xsd ">
+	<throttle delay="10" unit="ms" host="example.s3.amazonaws.com" />
+	<throttle delay="10" unit="carrots" host="example.com" />
+	<urls>
+		<url>
+			<link>http://example.s3.amazonaws.com/gofetch/test_data/feeds/apa-journals-pas.xml</link>
+			<parser name="RawArticle">
+				<feed id="11335" name="Psychological Assessment" />
+			</parser>
+		</url>
+		<url>
+			<link>http://example.s3.amazonaws.com/gofetch/test_data/feeds/dydan1.xml</link>
+			<parser name="RawArticle">
+				<feed id="5592" name="dydan1" />
+			</parser>
+		</url>
+		<url>
+			<!-- This is duplicated to test indexing. -->
+			<link>http://example.s3.amazonaws.com/gofetch/test_data/feeds/apa-journals-pas.xml</link>
+			<parser name="RawArticle">
+				<feed id="11335" name="Psychological Assessment" />
+			</parser>
+		</url>
+		<url>
+			<link>http:/some.invalid.com/link</link>
+			<parser name="RawArticle">
+				<feed id="11335" name="Psychological Assessment" />
+			</parser>
+		</url>
+	</urls>
+</config>

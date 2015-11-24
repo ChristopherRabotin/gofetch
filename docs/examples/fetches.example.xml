@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fetches xmlns="http://fetcher.sparrho.com/fetches" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fetcher.sparrho.com/fetches ../fetches.xsd ">
+	<fetch novel="true" parser="rss">
+		<checksumIndex bucket="sparrho-content"
+			path="gofetch/index/sha384_checksum/{checksum}" />
+		<s3content bucket="sparrho-content" path="gofetch/sha384_content/{checksum}" />
+		<parser parser="rss">
+			<feed id="8850" name="Somatosensory &amp; Motor Research" />
+		</parser>
+	</fetch>
+	<fetch novel="false" parser="rss">
+		<checksumIndex bucket="sparrho-content"
+			path="gofetch/index/sha384_checksum/{checksum}" />
+		<s3content bucket="sparrho-content" path="gofetch/sha384_content/{checksum}" />
+		<parser parser="rss">
+			<feed id="8850" name="Somatosensory &amp; Motor Research" />
+		</parser>
+	</fetch>
+	<fetch novel="true" parser="arxiv_OAI">
+		<checksumIndex bucket="sparrho-content"
+			path="gofetch/index/sha384_checksum/{checksum}" />
+		<s3content bucket="sparrho-content" path="gofetch/sha384_content/{checksum}" />
+		<parser parser="arxiv_OAI">
+			<config metadataPrefix="arxiv" followResumptionToken="true"
+				base_url="http://export.arxiv.org/oai2" />
+		</parser>
+	</fetch>
+	<fetch novel="true" parser="wiley">
+		<checksumIndex bucket="sparrho-content"
+			path="gofetch/index/sha384_checksum/{checksum}" />
+		<s3content bucket="sparrho-content" path="gofetch/sha384_content/{checksum}" />
+		<parser parser="wiley">
+			<config name="Advanced Functional Materials" link_filter="/issuetoc" />
+		</parser>
+	</fetch>
+	<error original_link="http://example.com/ /blah/" message="Something bad happened"
+		clean_link="http://example.com/+/blah/" />
+	<meta>
+		<report errors="1" novel="3" total="5" />
+		<duration hours="0" minutes="1" seconds="50" />
+	</meta>
+</fetches>

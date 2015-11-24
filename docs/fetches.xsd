@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/fetches" xmlns:tns="http://www.example.org/fetches" elementFormDefault="qualified">
+
+    <element name="fetches" type="tns:fetchesType"></element>
+    
+    <complexType name="fetchesType">
+    	<sequence>
+    		<element name="fetch" type="tns:fetchType" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="error" type="tns:errorType" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="meta" type="tns:metaType" minOccurs="1" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="fetchType">
+    	<sequence>
+    		<element name="checksumIndex" type="tns:s3location"></element>
+    		<element name="s3content" type="tns:s3location" minOccurs="1"
+    			maxOccurs="1">
+                <annotation>
+                	<documentation></documentation>
+                </annotation>
+    		</element>
+    		<element name="parser" type="tns:parserType" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    	</sequence>
+    	<attribute name="parser" type="string" use="required">
+    		<annotation>
+    			<documentation>Name of the parser</documentation>
+    		</annotation></attribute>
+    	<attribute name="novel" type="boolean" use="required">
+    		<annotation>
+    			<documentation>Whether or not this checksum has been encountered before. Most consumers should xpath for what they can consume and what is novel: `//fetches/fetch[@parser="{parser_name}" and @novel="true"]`. Otherwise, they must be able to handle reprocessing what was not new.</documentation>
+    		</annotation></attribute>
+    </complexType>
+
+    <complexType name="s3location">
+    	<attribute name="bucket" type="string" use="required"></attribute>
+    	<attribute name="path" type="string" use="required"></attribute>
+    </complexType>
+
+    <complexType name="parserType">
+        <annotation>
+        	<documentation>Stores parser metadata.</documentation>
+        </annotation>
+        <sequence>
+	        <any processContents="skip" minOccurs="0"/>
+	    </sequence>
+    </complexType>
+
+
+    <complexType name="errorType">
+    	<attribute name="message" type="string" use="required"></attribute>
+    	<attribute name="original_link" type="string" use="required"></attribute>
+    	<attribute name="clean_link" type="string" use="required"></attribute>
+    </complexType>
+
+    <complexType name="metaType">
+    	<sequence>
+    		<element name="report" type="tns:reportType" minOccurs="1" maxOccurs="1"></element>
+    		<element name="duration" type="tns:durationType" minOccurs="1" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="durationType">
+    	<attribute name="hours" type="float" use="required"></attribute>
+    	<attribute name="minutes" type="float" use="required"></attribute>
+    	<attribute name="seconds" type="float" use="required"></attribute>
+    </complexType>
+
+    <complexType name="reportType">
+    	<attribute name="novel" type="int" use="required"></attribute>
+    	<attribute name="errors" type="int" use="required"></attribute>
+    	<attribute name="total" type="int" use="required"></attribute>
+    </complexType>
+</schema>

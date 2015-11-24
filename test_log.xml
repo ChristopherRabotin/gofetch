@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fetches>
+	<fetch novel="false" parser="RawArticle">
+		<checksumIndex bucket="sparrho-content" path="/gofetch/test_data/index/sha384_checksum/3c0edeebdfb207f6b233368a06bfd612e00a19afa9ea0468ecad85c9f245c1b5f9c5dff62408d4374fa975aaf3a87b64"></checksumIndex>
+		<s3content bucket="sparrho-content" path="/gofetch/test_data/sha384_content/3c0edeebdfb207f6b233368a06bfd612e00a19afa9ea0468ecad85c9f245c1b5f9c5dff62408d4374fa975aaf3a87b64"></s3content>
+		<parser xmlns="http://fetcher.sparrho.com/config" name="RawArticle">
+				<feed id="5592" name="dydan1" />
+			</parser>
+	</fetch>
+	<fetch novel="false" parser="RawArticle">
+		<checksumIndex bucket="sparrho-content" path="/gofetch/test_data/index/sha384_checksum/a6cd5b1ffba20c8789d770c3ed80263947c4f13510fb2d63cb1c96043e25f2b4f5b0b40f8f91c21606cec409cb376dfb"></checksumIndex>
+		<s3content bucket="sparrho-content" path="/gofetch/test_data/sha384_content/a6cd5b1ffba20c8789d770c3ed80263947c4f13510fb2d63cb1c96043e25f2b4f5b0b40f8f91c21606cec409cb376dfb"></s3content>
+		<parser xmlns="http://fetcher.sparrho.com/config" name="RawArticle">
+				<feed id="11335" name="Psychological Assessment" />
+			</parser>
+	</fetch>
+	<fetch novel="false" parser="RawArticle">
+		<checksumIndex bucket="sparrho-content" path="/gofetch/test_data/index/sha384_checksum/a6cd5b1ffba20c8789d770c3ed80263947c4f13510fb2d63cb1c96043e25f2b4f5b0b40f8f91c21606cec409cb376dfb"></checksumIndex>
+		<s3content bucket="sparrho-content" path="/gofetch/test_data/sha384_content/a6cd5b1ffba20c8789d770c3ed80263947c4f13510fb2d63cb1c96043e25f2b4f5b0b40f8f91c21606cec409cb376dfb"></s3content>
+		<parser xmlns="http://fetcher.sparrho.com/config" name="RawArticle">
+				<feed id="11335" name="Psychological Assessment" />
+			</parser>
+	</fetch>
+	<error original_link="http:/some.invalid.com/link" clean_link="http:/some.invalid.com/link" message="Get http:///some.invalid.com/link: http: no Host in request URL"></error>
+	<Meta>
+		<report novel="0" errors="1" total="4"></report>
+		<duration hours="0.0009398698177777779" minutes="0.05639218906666667" seconds="3.383531344"></duration>
+	</Meta>
+</fetches>

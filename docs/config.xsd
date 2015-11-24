@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/config" xmlns:tns="http://www.example.org/config" elementFormDefault="qualified">
+
+    <element name="config">
+    	<complexType>
+    		<sequence>
+    			<element name="index" type="tns:indexType" minOccurs="0"
+    				maxOccurs="unbounded">
+    				<annotation>
+    					<documentation>
+    						List of indexes. The canonical index is
+    						always enabled.
+    					</documentation>
+    				</annotation>
+    			</element>
+    			<element name="throttle" type="tns:throttleType" minOccurs="0" maxOccurs="unbounded"></element>
+    			<element name="urls" type="tns:urlsType" minOccurs="1"
+    				maxOccurs="1">
+    				<annotation>
+    					<documentation>
+    						List of URL elements.
+    					</documentation>
+    				</annotation>
+    			</element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <complexType name="urlType">
+    	<sequence>
+    		<element name="link" type="string" minOccurs="1" maxOccurs="1">
+    			<annotation>
+    				<documentation>Link to scrape. It is an element because some links may be very long (as per XML recommendation).</documentation>
+    			</annotation></element>
+    		<element name="parser" type="tns:parserType" minOccurs="1" maxOccurs="1">
+    			<annotation>
+    				<documentation>Parser information.</documentation>
+    			</annotation></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="urlsType">
+    	<sequence>
+    		<element name="url" type="tns:urlType" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="indexType">
+    	<attribute name="name" type="string" use="required">
+    		<annotation>
+    			<documentation>Name of the index, as understood by the fetcher.</documentation>
+    		</annotation></attribute>
+    	<attribute name="enabled" type="boolean" use="required">
+    		<annotation>
+    			<documentation>Enabled status.</documentation>
+    		</annotation></attribute>
+    </complexType>
+
+    <complexType name="parserType">
+        <annotation>
+        	<documentation>Stores parser metadata.</documentation>
+        </annotation>
+        <sequence>
+	        <any processContents="skip" minOccurs="0"/>
+	    </sequence>
+        <attribute name="name" type="string" use="required"></attribute>
+    </complexType>
+
+    <complexType name="throttleType">
+    	<attribute name="host" type="string" use="required">
+    		<annotation>
+    			<documentation>Hostname and port number, if applicable. Must *exactly* match the &gt;link&lt; string to work.</documentation>
+    		</annotation></attribute>
+    	<attribute name="delay" type="float" use="required">
+    		<annotation>
+    			<documentation>Delay as a float, whose unit is in unit.</documentation>
+    		</annotation></attribute>
+    	<attribute name="unit" type="string" use="required">
+    		<annotation>
+    			<documentation>Unit of the delay, defaults to seconds. Accepted units as defined in Go: http://golang.org/pkg/time/#ParseDuration .</documentation>
+    		</annotation></attribute>
+    </complexType>
+</schema>

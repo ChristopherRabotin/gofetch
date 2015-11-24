@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://fetcher.sparrho.com/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fetcher.sparrho.com/config ../config.xsd ">
+	<index enabled="true" name="checksum" />
+	<throttle host="example.com" delay="2.5" unit="s" />
+	<urls>
+		<url>
+			<link>http://informahealthcare.com/action/showFeed?jc=smr&amp;type=etoc&amp;feed=rss</link>
+			<parser name="rss">
+				<feed id="8850" name="Somatosensory &amp; Motor Research" />
+			</parser>
+		</url>
+		<url>
+			<link>http://export.arxiv.org/oai2?verb=ListRecords&amp;metadataPrefix=arXiv&amp;from=2015-04-13&amp;until=2015-04-14</link>
+			<parser name="arxiv_OAI">
+				<config metadataPrefix="arxiv" followResumptionToken="true"
+					base_url="http://export.arxiv.org/oai2" />
+			</parser>
+		</url>
+		<url>
+			<link>http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1616-3028</link>
+			<parser name="wiley">
+				<config name="Advanced Functional Materials" link_filter="/issuetoc" />
+			</parser>
+		</url>
+	</urls>
+</config>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://fetcher.sparrho.com/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fetcher.sparrho.com/config docs/config.xsd ">
+	<throttle delay="20" unit="s" host="feeds.feedburner.com" />
+	<urls/>
+</config>

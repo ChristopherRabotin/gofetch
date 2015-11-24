@@ -1,0 +1,22 @@
+{
+	"ImportPath": "github.com/Sparrho/gofetch",
+	"GoVersion": "go1.4.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/mitchellh/goamz/aws",
+			"Rev": "caaaea8b30ee15616494ee68abd5d8ebbbef05cf"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/goamz/s3",
+			"Rev": "caaaea8b30ee15616494ee68abd5d8ebbbef05cf"
+		},
+		{
+			"ImportPath": "github.com/op/go-logging",
+			"Rev": "e8d5414f0947014548c2334044a0fac13187dfee"
+		},
+		{
+			"ImportPath": "github.com/vaughan0/go-ini",
+			"Rev": "a98ad7ee00ec53921f08832bc06ecf7fd600e6a1"
+		}
+	]
+}

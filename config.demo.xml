@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://fetcher.sparrho.com/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fetcher.sparrho.com/config docs/config.xsd ">
+	<throttle delay="20" unit="s" host="feeds.feedburner.com" />
+	<urls>
+		<url>
+			<link>http://feeds.feedburner.com/acs/joceah</link>
+			<parser name="rss">
+				<feed id="8850" name="joceah" />
+			</parser>
+		</url>
+		<url>
+			<link>http://feeds.feedburner.com/apa-journals-pas?format=xml</link>
+			<parser name="rss">
+				<feed id="11335" name="Psychological Assessment" />
+			</parser>
+		</url>
+		<url>
+			<link>http://feeds.feedburner.com/dydan1</link>
+			<parser name="rss">
+				<feed id="5592" name="dydan1" />
+			</parser>
+		</url>
+	</urls>
+</config>
