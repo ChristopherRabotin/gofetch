@@ -3,11 +3,12 @@ package main
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/mitchellh/goamz/aws"
-	"github.com/mitchellh/goamz/s3"
 	"os"
 	"sync"
 	"time"
+
+	"github.com/mitchellh/goamz/aws"
+	"github.com/mitchellh/goamz/s3"
 )
 
 // Config allows for unmarshling of the remote configuration file.
@@ -61,7 +62,7 @@ type Fetches struct {
 	XMLName    xml.Name      `xml:"fetches"`
 	Fetch      []*Fetch      `xml:"fetch"`
 	FetchError []*FetchError `xml:"error"`
-	Meta       *Meta         `xml:"meta`
+	Meta       *Meta         `xml:"meta"`
 }
 
 // Fetch allows for marshling of single fetch result in output log.

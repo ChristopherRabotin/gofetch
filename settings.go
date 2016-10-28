@@ -3,11 +3,12 @@ package main
 import (
 	"errors"
 	"fmt"
-	"github.com/op/go-logging"
 	"os"
 	"runtime"
 	"strconv"
 	"time"
+
+	"github.com/op/go-logging"
 )
 
 // CheckEnvVars checks that all the environment variables required are set, without checking their value. It will panic if one is missing.
@@ -41,7 +42,7 @@ func ConfigureLogger() {
 			log.Notice("Set logging level to %s.\n", lvl)
 			logging.SetLevel(lvl, "")
 		} else {
-			fmt.Errorf("%s", err)
+			fmt.Printf("%s", err)
 		}
 	} else {
 		log.Notice("No log level defined in environment. Defaulting to INFO.\n")
